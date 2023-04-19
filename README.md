@@ -20,6 +20,75 @@
 # Python Basics
  All basic code syntax 
 
+
+ ## Float decimals
+
+Round function is used to format decimals.
+ ```Python
+x = 3.232
+y = round(x, 2)
+print(y)
+ ```
+## String formatting
+Alternate way to round the decimals of float is using format methond.
+
+```Python
+x = 3.232
+y = "{:.2f}".format(x)
+print(y)
+```
+
+## Dictionary Iteration
+
+Iterate over key, value pairs in a dictionary Items
+
+```Python
+lst = [v for k, v in student_marks.items() if k == query_name]
+```
+
+## Sets
+
+Sets are best way to remove duplicates.
+
+```Python
+lst = [2, 2, 2, 2, 2, 3, 2, 2, 2]
+lst1 = set(lst)
+
+print(lst1)
+```
+Output is:
+```Python
+{2, 3}
+``` 
+
+## Count occurrences 
+
+
+
+```Python
+lst = [2, 2, 2, 2, 2, 3, 2, 2, 2]
+dct = {}
+
+for i in lst:
+    dct[i] = lst.count(i)
+print(dct)
+
+dct1 = {i : lst.count(i) for i in lst}
+print(dct1)
+```
+
+## One liner for loop
+
+```Python
+print(','.join(str(i) for i in range(5) if i % 2 == 0))
+```
+Output is a generator object, which has to be joined with "," or '\n'.
+
+<!--
+```Python
+
+``` 
+-->
 <!-- 
 
 Test1  
