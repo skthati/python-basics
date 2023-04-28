@@ -84,6 +84,8 @@ print(','.join(str(i) for i in range(5) if i % 2 == 0))
 ```
 Output is a generator object, which has to be joined with "," or '\n'.
 
+
+
 <!--
 ```Python
 
