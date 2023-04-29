@@ -84,6 +84,99 @@ print(','.join(str(i) for i in range(5) if i % 2 == 0))
 ```
 Output is a generator object, which has to be joined with "," or '\n'.
 
+## Find duplicates
+
+Below code is using brute force.
+
+```Python
+lst = [1, 3, 5, 2, 7, 8]
+
+for i in range(len(lst)):
+    for j in range(i+1, len(lst)):
+        if lst[i] > lst[j]:
+            lst[j], lst[i] = lst[i], lst[j]
+
+print(lst)
+```
+## Reverse a List
+Palindrome: 
+To reverse a list, change if statement to not equals to.
+
+```Python
+lst = [1, 3, 5, 2, 7, 8, 3, 2]
+
+for i in range(len(lst)):
+    for j in range(i+1, len(lst)):
+        if lst[i] != lst[j]:
+            lst[j], lst[i] = lst[i], lst[j]
+
+print(lst)
+```
+
+## Remove Duplicates from list
+
+```Python
+lst = [1, 3, 5, 2, 7, 8, 3, 2]
+lst1 = []
+
+for i in range(len(lst)):
+    if lst[i] not in lst1:
+        lst1.append(lst[i])
+
+print(lst1)
+
+```
+
+Another way of removing duplicates
+
+```Python
+lst = [1, 3, 5, 2, 7, 8, 3, 2]
+lst1 = []
+
+[lst1.append(i) for i in lst if i not in lst1]
+
+print(lst1)
+```
+
+One liner to remove duplicates
+
+```Python
+lst = [1, 3, 5, 2, 7, 8, 3, 2]
+lst = [j for i, j in enumerate(lst) if j not in lst[:i] ]
+print(lst)
+```
+
+## Check if a list has duplicates.
+
+To check if a list has duplicates and return True or False
+
+
+Easiest way is to convert the list to Set and check the lenght of original list and converted Set.
+
+```Python
+lst = [1, 3, 5, 2, 7, 8, 3, 2]
+print((len(lst) != len(set(lst))))
+
+#Output:
+True
+
+```
+
+
+## List1 - List2
+
+To show the items in list1 whcih are not in list2
+
+```Python
+lst = ['sam', 'ram', 'jam', 'fam', 'ram', 'sam']
+lst2 = ['sam', 'ram']
+
+lst3 = [i for i in lst if i not in lst2]
+print(lst3)
+```
+
+
+
 
 
 <!--
