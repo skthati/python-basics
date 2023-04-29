@@ -162,6 +162,92 @@ True
 
 ```
 
+## Shuffle a string
+
+To check all possible shuffles of a given string
+
+```Python
+import itertools
+
+s = "abc"
+
+# Use permutations function to generate all possible permutations
+perms = set(itertools.permutations(s))
+print(perms)
+
+# Convert permutations to list of strings
+perm_strings = [''.join(p) for p in perms]
+
+print(perm_strings)
+```
+
+## Permutations of a string
+
+Using the permutations function using the itertools
+
+```Python
+import itertools
+
+s = "abc"
+permutations = list(itertools.permutations(s))
+
+print(permutations)
+```
+Another way of permutations
+
+```Python
+def get_permutation(string, i=0):
+
+    if i == len(string):   	 
+        print("".join(string))
+
+    for j in range(i, len(string)):
+
+        words = [c for c in string]
+   
+        # swap
+        words[i], words[j] = words[j], words[i]
+   	 
+        get_permutation(words, i + 1)
+
+print(get_permutation('yup'))
+```
+
+One more way of permutations
+
+```Python
+def perms(s):        
+    if(len(s)==1): return [s]
+    result=[]
+    for i,v in enumerate(s):
+        result += [v+p for p in perms(s[:i]+s[i+1:])]
+    return result
+
+print(perms('abc'))
+```
+
+One more
+
+```Python
+def permute(data, i, length): 
+    if i==length: 
+        print(''.join(data) )
+    else: 
+        for j in range(i,length): 
+            #swap
+            data[i], data[j] = data[j], data[i] 
+            permute(data, i+1, length) 
+            data[i], data[j] = data[j], data[i]  
+  
+
+string = "ABC"
+n = len(string) 
+data = list(string) 
+permute(data, 0, n)
+```
+
+
+
 
 ## List1 - List2
 
