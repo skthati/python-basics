@@ -246,6 +246,72 @@ data = list(string)
 permute(data, 0, n)
 ```
 
+Returns as a list, recursive iteration. Changed small bit of code.
+
+```Python
+def permutations(str, i = 0):
+    
+    if len(str) == i:
+        lst.append(''.join(str))
+        return (lst)
+    
+    for j in range(i, len(str)):
+        n_str = [x for x in str]
+        n_str[i], n_str[j] = n_str[j], n_str[i]
+        permutations(n_str, i+1)
+
+lst = []            
+permutations("abcd")
+print(lst)
+```
+
+```Python
+strs = ["eat","tea","tan","ate","nat","bat"]
+
+dct = {k:v for k,v in enumerate(strs)}
+print(dct)
+dct1 = {}
+
+for i in range(len(strs)):
+    new_sorted_word = sorted(strs[i])
+    new_sorted_word = ''.join(new_sorted_word)
+    dct1[i] = new_sorted_word
+
+print(dct1)
+
+keys = list(dct1.keys())
+
+for i in range(len(keys)):
+    for j in range(i, len(keys)):
+        if dct1[keys[i]] > dct1[keys[j]]:
+            keys[i], keys[j] = keys[j], keys[i]
+
+dct2 = {}
+
+for k in keys:
+    dct2[k] = dct1[k]
+
+print(dct2)
+
+dct3 = []
+
+for k in dct2.keys():
+    dct3.append(dct1[k])
+
+dct4 = []
+for i in range(len(dct3)):
+    temp_d =[]
+    for j in range(i+1, len(dct3)):
+        if dct3[i] != dct3[j]:
+            dct4.append(dct3[i])
+        elif dct3[i] == dct3[j]:
+            temp_d += dct3[i]
+        
+    dct4.append(temp_d)
+
+print(dct3)
+print(dct4)    
+```
 
 
 
