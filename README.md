@@ -11,6 +11,7 @@
 <hr>
 <ol>
     <li><a href="#python-basics">Python Basics</a></li>
+    <li><a href="#exceptions">Python Exceptions</a></li>
     <li><a href="#bloopers">Bloopers</a></li>
 </ol>
 <hr>
@@ -327,6 +328,60 @@ lst3 = [i for i in lst if i not in lst2]
 print(lst3)
 ```
 
+ 
+## Python Exceptions <a name="exceptions"></a>
+Python Exceptions
+
+try: Executes a piece of code.
+except: if try has errors, then except is executed. We can use any number of except blocks.
+else: If try has no errors, then else is executed.
+finally: Is executed at the end of block. 
+
+```Python
+try:
+    file = open("test.txt")
+    a_dic = {"key":"value"}
+    print(a_dic["test1"])
+except FileNotFoundError:
+    file = open("a_file.txt", "w")
+    file.write("Something")
+except KeyError as er:
+    print(f"The key {er} does not exist.")
+else:
+    content = file.read()
+    print(content)
+finally:
+    file.close()
+    print("file was closed.")
+
+```
+
+### Custom exceptions:
+
+```Python
+if height > 3:
+    raise ValueError("Human height is no more than 3 meters")
+```
+
+### Index Exception:
+
+```Python
+fruits = ["Apple", "Banana", "Orange"]
+
+def make_pie(index):
+    try:
+        fruit = fruits[index]
+    except IndexError:
+        print("Fruit Pie")
+    else:
+        print(fruit + " pie")
+```
+
+### Key Exception:
+ 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<hr>  
 
 
 
