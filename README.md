@@ -383,6 +383,71 @@ def make_pie(index):
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <hr>  
 
+## Json
+
+Python has inbuilt library for json.
+
+To serialize json data to python dictionary we use dump.
+To deserialize we use load.
+
+`import json`
+
+
+
+Write : json.dump()
+
+```Python
+with open("password-manager/data.json", "w") as df:
+    json.dump(new_data, df, indent==4) # indent creates space so code is more readable.
+```
+`w` stands for write.
+
+Read  : json.load()
+
+```Python
+with open("password-manager/data.json", "r") as df:
+    data = json.load(df)
+    print(data)
+```
+
+
+To create data as json format and write it in a json file
+
+```Python
+def save():
+    web_url = website_entry.get()
+    username = username_entry.get()
+    password = password_entry.get()
+    new_data = {
+        web_url: {
+            "email": username,
+            "password": password,
+        }
+    }
+
+    if len(web_url) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Warning", message="Please fill all details.")
+    else:
+        with open("password-manager/data.json", "w") as df:
+            json.dump(new_data, df, indent=4)
+```
+
+
+Update: Json.update()
+
+To update json data
+
+```Python
+with open("password-manager/data.json", "r") as df:
+    data = json.load("df")
+    updated_data = data.update(new_data)
+
+with open("password-manager/data.json", "w") as df:
+    json.dump(updated_data, df, indent=4)
+
+```
+
+d
 
 
 
