@@ -12,6 +12,7 @@
 <ol>
     <li><a href="#python-basics">Python Basics</a></li>
     <li><a href="#exceptions">Python Exceptions</a></li>
+    <li><a href="#function_overloading">Function Overloading</a></li>
     <li><a href="#bloopers">Bloopers</a></li>
 </ol>
 <hr>
@@ -326,6 +327,44 @@ lst2 = ['sam', 'ram']
 
 lst3 = [i for i in lst if i not in lst2]
 print(lst3)
+```
+## Function overloading <a name="function_overloading"></a>
+
+```Python
+
+# Function overloading
+
+def sum(a, b):
+    return (a + b)
+
+def sub(a, b):
+    return (a - b)
+
+def multiply(a, b):
+    return (a * b)
+
+def divide(a, b):
+    return (a / b)
+
+def calculate_func(func, a, b):
+    function = {
+        'sum': sum,
+        'sub': sub,
+        'multiply': multiply,
+        'divide': divide
+    }
+    if func in function:
+        return function[func](a, b)
+    
+
+a = int(input('Enter 1st number: '))
+b = int(input('Enter 2nd number: '))
+c = input('Select sum/sub/multiply/divide: ')
+
+result = calculate_func(c, a, b)
+
+print(f'{c} of {a} and {b} is {result}')
+
 ```
 
  
