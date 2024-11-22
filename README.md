@@ -485,10 +485,38 @@ with open("password-manager/data.json", "w") as df:
     json.dump(updated_data, df, indent=4)
 
 ```
+Sort only odd numbers. even numbers should be in same place.
 
-d
+```Python
 
+lst = [11, 1, 2, 8, 3, 4, 5]
+d_lst = {k:v for k, v in enumerate(lst)}
+odd_values = {k:v for k, v in d_lst.items() if v % 2 != 0}
+reverse_odd_lst = list(odd_values.values())[::-1]
+reverse_dict = {k:v for k, v in zip(odd_values.keys(), reverse_odd_lst)}
+final_dict = {k:(reverse_dict[k] if k in reverse_dict.keys() else v) for k, v in d_lst.items()}
+final_lst = [v for k, v in final_dict.items()]
+print(final_lst)
+``` 
+Alternate way to get the same result
 
+```Python
+  lst = sorted((i for i in input_array if i%2 != 0), reverse=True)
+  return [i if i % 2 == 0 else lst.pop() for i in input_array]
+```
+Another alternate way to get the same result
+```Python
+    lst = iter(sorted(i for i in input_array if i % 2))
+    return [next(lst) if i % 2 else i for i in input_array]
+```
+
+```Python
+item_iter = iter(my_dict.items())
+
+for key, value in item_iter:
+    if value % 2 != 0:
+        print(f"The value {value} at key '{key}' is odd.")
+```
 
 <!--
 ```Python
