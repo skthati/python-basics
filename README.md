@@ -620,7 +620,167 @@ a1 = reduce(lambda x, y : x*y, a)
 print(a1)
 ```
 
+```Python
+def grow(arr):
+    from functools import reduce
+    return reduce(lambda x, y : x*y, arr)
+```
 
+```Python
+def duplicate_count(text):
+    # Your code goes here
+    text = text.lower()
+    return len({i:text.count(i) for i in text if text.count(i) > 1})
+```
+```Python
+def duplicate_count(text):
+    # Your code goes here
+    text = text.lower()
+    d = {i:text.count(i) for i in text}
+    return len([v for k, v in d.items() if v>1])
+```
+```Python
+def array_diff(a, b):
+    return [i for i in a if i not in b]
+```
+```Python
+def pig_it(text):
+    s = '!@#$%^&*()-+?_=,<>/'
+    text = text.split()
+    text_1 = [i if i in s else i[1::] + i[:1:] + "ay" for i in text ]
+    return " ".join(text_1)
+```
+```Python
+def sort_array(source_array):
+    d_lst = {k:v for k, v in enumerate(source_array)}
+    odd_values = {k:v for k, v in d_lst.items() if v % 2 != 0}
+    sorted_odd_lst = sorted(list(odd_values.values()))
+    reverse_dict = {k:v for k, v in zip(odd_values.keys(), sorted_odd_lst)}
+    final_dict = {k:(reverse_dict[k] if k in reverse_dict.keys() else v) for k, v in d_lst.items()}
+    return [v for k, v in final_dict.items()]
+```
+```Python
+def reverse_words(text):
+    list = []
+    each_word = ""
+    reverse_list = []
+    final_string = ""
+    for i in text:
+        if i == " ":
+            list.append(each_word)
+            each_word = ""
+        else:
+            each_word +=i
+    list.append(each_word)
+    for i in list:
+        reverse_list.append(i[::-1])
+    
+    for i in reverse_list:
+        final_string = final_string + i + " "
+    
+    return final_string[0:-1:]
+```
+```Python
+def solution(number):
+    return sum([i for i in range(number) if i%3==0 or i%5==0])
+```
+```Python
+def remove_char(s):
+    #your code here
+    s = s[1:]
+    s = s[:-1]
+    return s
+```
+```Python
+def format_duration(seconds):
+    if seconds == 0:
+        return "now"
+
+    year = seconds//(365 * 24 * 60 * 60)
+    seconds %= (365 * 24 * 60 * 60)
+    day = seconds//(24 * 60 * 60)
+    seconds %= (24 * 60 * 60)
+    hour = seconds//(60 * 60)
+    seconds %= (60 * 60)
+    minute = seconds//60
+    seconds %= 60
+
+    # Duration parts
+    duration_parts = []
+    if year > 0:
+        duration_parts.append(f"{year} year{'s' if year > 1 else ''}")
+    if day > 0:
+        duration_parts.append(f"{day} day{'s' if day > 1 else ''}")
+    if hour > 0:
+        duration_parts.append(f"{hour} hour{'s' if hour > 1 else ''}")
+    if minute > 0:
+        duration_parts.append(f"{minute} minute{'s' if minute > 1 else ''}")
+    if seconds > 0:
+        duration_parts.append(f"{seconds} second{'s' if seconds > 1 else ''}")
+
+    # Framing the sentence
+    if len(duration_parts) == 1:
+        return duration_parts[0]
+    elif len(duration_parts) == 2:
+        return f"{duration_parts[0]} and {duration_parts[1]}"
+    else:
+        return f"{', '.join(duration_parts[:-1])} and {duration_parts[-1]}"
+```
+```python
+def generate_hashtag(s):
+    #your code here
+    s = s.title()
+    s = s.strip()
+    s1 = s.split()
+    s2 = ""
+    for i in s1:
+        s2 += i
+    if len(s2) > 139 or s2 == "":
+        return False
+    s2 = "#" + s2
+
+    return s2
+```
+
+```Python
+def alphabet_position(text):
+    num = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+    abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    text = text.lower()
+    num_abc = {}
+    for i in range(len(abc)):
+        num_abc[abc[i]] = num[i]
+    
+    n_text = ""
+    m = range(len(abc))
+    for i in text:
+        if i in num_abc:
+            n_text += str(num_abc[i]) + " "
+    n_text = n_text[:-1:]
+    return n_text
+```
+
+```Python
+def filter_list(l):
+    'return a new list with the strings filtered out'
+    n_l = []
+    for i in l:
+        if isinstance(i, int):
+            n_l.append(i)
+    return n_l
+```
+
+```Python
+def disemvowel(string_):
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+    n1 = [i for i in string_ if i in vowels]
+    n2 = [i for i in string_ if i not in n1]
+    n3 = ""
+    for i in n2:
+        n3 += i
+    string_ = n3
+    return string_
+```
 
 <!--
 ```Python
