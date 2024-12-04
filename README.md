@@ -518,6 +518,55 @@ for key, value in item_iter:
         print(f"The value {value} at key '{key}' is odd.")
 ```
 
+# Sorted
+
+function Sorted with examples.
+
+```Python
+words = ["apple", "orange", "banana", "kiwi", "grape"]
+
+# Function to count vowels
+vowel_count = lambda x: sum(1 for char in x if char.lower() in "aeiou")
+
+print(vowel_count(words[0]))
+
+# Sort by vowel count and then alphabetically
+sorted_words = sorted(words, key=lambda x: (vowel_count(x), x))
+print(sorted_words)
+
+jobs = [
+    {"job": "A", "duration": 3, "deadline": 10},
+    {"job": "B", "duration": 2, "deadline": 5},
+    {"job": "C", "duration": 1, "deadline": 5},
+]
+
+s1 = sorted(jobs, key=lambda x: (x["deadline"], x["duration"]))
+print(s1)
+
+files = ["report.pdf", "photo.jpg", "document.docx", "script.py", "notes.txt"]
+
+s2 = sorted(files, key=lambda x: (x.split(".")[-1], x))
+print(s2)
+
+data = [
+    {"name": "Alice", "age": 30, "score": 85},
+    {"name": "Bob", "age": 25, "score": 92},
+    {"name": "Charlie", "age": 35, "score": 75},
+]
+
+s3 = sorted(data, key=lambda x: x["age"])
+print(s3)
+
+events = [
+    {"date": "2024-12-01", "priority": 3},
+    {"date": "2024-11-30", "priority": 1},
+    {"date": "2024-12-01", "priority": 5},
+]
+
+s4 = sorted(events, key = lambda x : x["priority"])
+print(s4)
+```
+
 <!--
 ```Python
 
