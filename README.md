@@ -567,6 +567,61 @@ s4 = sorted(events, key = lambda x : x["priority"])
 print(s4)
 ```
 
+# map()
+```Python
+a = [1, 2, 3, 2, 5]
+
+for i, j in zip(a, a[1:]):
+    if i>j:
+        print(f"{i} > {j}")
+    elif i<j:
+        print(f"{i} < {j}")
+    else:
+        print(f"{i} == {j}")
+
+```
+
+# enumerate
+```Python
+a = [1, 2, 3, 2, 5]
+
+for index, value in enumerate(a[:-1]):  # Stop at the second-to-last element
+    next_value = a[index + 1]
+    if value > next_value:
+        print(f"{value} > {next_value}")
+    elif value < next_value:
+        print(f"{value} < {next_value}")
+    else:
+        print(f"{value} == {next_value}")
+```
+
+# zip()
+
+```Python
+a = [1, 2, 3, 4, 5]
+
+# Compare and compute results
+results = [
+    (x, y, x + y, x * y, x - y)  # Tuple of the two elements, their sum, product, and difference
+    for x, y in zip(a, a[1:])
+]
+
+print(results)
+```
+
+# reduce
+
+```Python
+a = [1, 2, 3, 4, 5]
+
+from functools import reduce
+
+a1 = reduce(lambda x, y : x*y, a)
+print(a1)
+```
+
+
+
 <!--
 ```Python
 
