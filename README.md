@@ -782,6 +782,16 @@ def disemvowel(string_):
     return string_
 ```
 
+# replace()
+
+```Python
+def disemvowel(s):
+    for i in "aeiouAEIOU":
+        s = s.replace(i,'')
+    return s
+```
+
+
 <!--
 ```Python
 
