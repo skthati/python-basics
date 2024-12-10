@@ -791,6 +791,22 @@ def disemvowel(s):
     return s
 ```
 
+# itertools permutations
+
+```Python
+import itertools
+
+lst = ['a', 'b', 'c', 'd']
+
+output = [''.join(p) for p in itertools.permutations(lst)]
+print(output)
+
+output1 = []
+output1 = [i for i in output if i not in output1]
+
+print(output1)
+print(f"{len(output)} and {len(output1)}")
+```
 
 <!--
 ```Python
