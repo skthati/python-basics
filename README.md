@@ -807,6 +807,12 @@ output1 = [i for i in output if i not in output1]
 print(output1)
 print(f"{len(output)} and {len(output1)}")
 ```
+# Nested List
+```Python
+input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+output = ["Senior" if age > 55 and handicap > 7 else "Open" for age, handicap in input]
+print(output)
+```
 
 <!--
 ```Python
